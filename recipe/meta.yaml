@@ -1,5 +1,5 @@
 {% set name = "barfi" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/barfi-{{ version }}.tar.gz
-  sha256: cb0bfca08182b3691bc6daa4129b3b6316821a9c5bc4ebe8cdb5947bf199e3e9
+  sha256: 2d5345fc24534738d31fc643687628d55516ef452e77cc2f8ca375326744294b
 
 build:
   noarch: python
