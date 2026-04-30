@@ -1,0 +1,46 @@
+schema_version: 1
+
+context:
+  name: barfi
+  version: "1.1.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/barfi-${{ version }}.tar.gz
+  sha256: 2d5345fc24534738d31fc643687628d55516ef452e77cc2f8ca375326744294b
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - poetry
+  run:
+    - python >=${{ python_min }}
+    - streamlit >=0.63
+    - networkx >=2.6.2
+
+tests:
+  - python:
+      imports:
+        - barfi
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Framework for a graphical programming environment.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/krish-adi/barfi
+  repository: https://github.com/krish-adi/barfi
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
